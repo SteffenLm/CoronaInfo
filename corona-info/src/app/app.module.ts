@@ -16,13 +16,17 @@ import { HttpClientModule } from '@angular/common/http';
 import { LandkreisDetailComponent } from './landkreis-detail/landkreis-detail.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { FavoritenComponent } from './favoriten/favoriten.component';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     MainNavigationComponent,
     LandkreiseComponent,
-    LandkreisDetailComponent
+    LandkreisDetailComponent,
+    FavoritenComponent,
+    AboutComponent
   ],
   imports: [
     BrowserModule,

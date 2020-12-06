@@ -1,0 +1,9 @@
+<mat-nav-list>
+  <a mat-list-item *ngFor="let landkreis of favourites$ | async; let i = index"
+    [routerLink]="['/landkreise/', landkreis.attributes.OBJECTID]">
+    <div style="display: flex; flex-direction: row; justify-content: space-between; width: 100%;">
+      <div>{{ landkreis.attributes.BEZ }} {{ landkreis.attributes.GEN }}</div>
+      <div>{{ landkreis.attributes.cases7_per_100k | number:'1.0-0' }}</div>
+    </div>
+  </a>
+</mat-nav-list>
