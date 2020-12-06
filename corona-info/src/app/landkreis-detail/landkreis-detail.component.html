@@ -5,22 +5,22 @@
     *ngFor="let landkreis of data$ | async; let i = index"
 >
     <h2>
-        {{ landkreis.attributes.BEZ }} {{ landkreis.attributes.GEN }}
+        {{ landkreis.attributes.BEZ }} {{ landkreis.attributes.GEN }} im Bundesland {{ landkreis.attributes.BL }}
     </h2>
     <div style="display: flex; flex-direction: row; justify-content:space-around">
-        <div style="color: #9e3d70;">
-            {{landkreis.attributes.cases}} bestätigte Fälle
+        <div>
+            Bestätigte Fälle insgesamt: {{landkreis.attributes.cases}}
         </div>
-        <div style="color: #0088a0;">
-            {{ landkreis.attributes.deaths }} gestorben
+        <div>
+            Todesfälle in: {{ landkreis.attributes.deaths }}
         </div>
     </div>
     <div style="margin-top: 1rem; display: flex; flex-direction: row; justify-content:space-around">
         <div>
-            {{ landkreis.attributes.cases_per_population / 100 | percent: '1.3' }} betroffen
+            7-Tages Inzidenz pro 100.000 Einwohner: {{ landkreis.attributes.cases7_per_100k | number:'1.0-0' }}
         </div>
         <div>
-            {{ landkreis.attributes.cases_per_100k.toString().substring(0,4) }} Fälle pro 100.000
+            7-Tages Inzidenz pro 100.000 Einwohner im Bundesland: {{ landkreis.attributes.cases7_bl_per_100k | number:'1.0-0' }}
         </div>
     </div>
 </div>
