@@ -9,7 +9,7 @@ import { FavouriteService } from './favourite.service';
 })
 export class CoronadataService {
 
-  private static QUERY = `query?where=BEZ%20=%20'Landkreis'%20OR%20BEZ%20=%20'Kreis'&orderByFields=GEN&outFields=BEZ,GEN,OBJECTID&returnGeometry=false&f=json`;
+  private static QUERY = `query?where=BEZ='Landkreis' OR BEZ='Kreis'&orderByFields=GEN&outFields=BEZ,GEN,OBJECTID&returnGeometry=false&f=json`;
 
 
   constructor(
