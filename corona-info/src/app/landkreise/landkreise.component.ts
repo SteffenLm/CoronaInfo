@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { CoronadataService } from '../coronadata.service';
-import { map } from 'rxjs/operators';
+import { CoronaDataService } from '../coronadata.service';
 
 @Component({
   selector: 'app-landkreise',
@@ -11,7 +10,7 @@ export class LandkreiseComponent implements OnInit {
 
   public landkreise$: any;
 
-  constructor(private readonly coronaService: CoronadataService) { }
+  constructor(private readonly coronaService: CoronaDataService) { }
 
   ngOnInit(): void {
     this.landkreise$ = this.coronaService.getLandkreise();

@@ -1,7 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
-import { CoronadataService } from '../coronadata.service';
-import { FavouriteService } from '../favourite.service';
+import { CoronaDataService } from '../coronadata.service';
 
 @Component({
   selector: 'app-favoriten',
@@ -12,9 +11,9 @@ export class FavoritenComponent implements OnInit {
 
   public favourites$: Observable<any>;
 
-  constructor(private coronadataService: CoronadataService) { }
+  constructor(private coronadataService: CoronaDataService) { }
 
-  ngOnInit(): void {  
+  ngOnInit(): void {
     this.favourites$ = this.coronadataService.getFavouritesData();
   }
 }

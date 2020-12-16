@@ -1,7 +1,7 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Subscription } from 'rxjs';
-import { CoronadataService } from '../coronadata.service';
+import { CoronaDataService } from '../coronadata.service';
 import { FavouriteService } from '../favourite.service';
 
 @Component({
@@ -22,7 +22,7 @@ export class LandkreisDetailComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private readonly coronaService: CoronadataService,
+    private readonly coronaService: CoronaDataService,
     private favouriteService: FavouriteService) { }
 
   ngOnInit(): void {
@@ -40,7 +40,7 @@ export class LandkreisDetailComponent implements OnInit, OnDestroy {
   }
 
   public manageFavourite() {
-    if(this.iconColor === 'darkgrey') {
+    if (this.iconColor === 'darkgrey') {
       this.favouriteService.addFavourite(this.objectId);
       this.iconColor = '';
     } else {

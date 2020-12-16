@@ -7,9 +7,9 @@ import { FavouriteService } from './favourite.service';
 @Injectable({
   providedIn: 'root'
 })
-export class CoronadataService {
+export class CoronaDataService {
 
-  private static QUERY = `query?where=BEZ='Landkreis' OR BEZ='Kreis'&orderByFields=GEN&outFields=BEZ,GEN,OBJECTID&returnGeometry=false&f=json`;
+  private static QUERY = `query?where=BEZ='Landkreis' OR BEZ='Kreis'&orderByFields=GEN&outFields=BEZ,GEN,OBJECTID,cases,deaths,cases7_per_100k,cases7_bl_per_100k,BL&returnGeometry=false&f=json`;
 
 
   constructor(
@@ -17,7 +17,7 @@ export class CoronadataService {
     private readonly favouriteService: FavouriteService) { }
 
   public getLandkreise() {
-    return this.httpClient.get(environment.apiUrl + CoronadataService.QUERY).pipe(
+    return this.httpClient.get(environment.apiUrl + CoronaDataService.QUERY).pipe(
       map((data: any) => data.features)
     );
   }
