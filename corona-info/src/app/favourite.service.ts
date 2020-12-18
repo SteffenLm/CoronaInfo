@@ -5,7 +5,7 @@ import { LocalStorage } from './local-storage';
   providedIn: 'root'
 })
 export class FavouriteService extends LocalStorage<string> {
-  
+
   constructor() {
     super('favourites');
   }
