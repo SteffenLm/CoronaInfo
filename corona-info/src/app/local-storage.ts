@@ -3,16 +3,16 @@ export abstract class LocalStorage<T> {
     private items: T[];
 
     constructor(private readonly key: string) {
-        const localStorageItems = localStorage.getItem(this.key)
+        const localStorageItems = localStorage.getItem(this.key);
         if (localStorageItems === null) {
-            this.items = [];                                    
+            this.items = [];
         } else {
-            this.items = JSON.parse(localStorageItems);            
-        }                
+            this.items = JSON.parse(localStorageItems);
+        }
     }
 
     protected setData(items: T[]): void {
-        localStorage.setItem(this.key, JSON.stringify(this.items));
+        localStorage.setItem(this.key, JSON.stringify(items));
         this.items = items.slice(0);
     }
 

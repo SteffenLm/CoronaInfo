@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Observable } from 'rxjs';
+import { CoronaDataSet } from '../corona-data-set';
 import { CoronaDataService } from '../coronadata.service';
 
 @Component({
@@ -8,12 +10,12 @@ import { CoronaDataService } from '../coronadata.service';
 })
 export class LandkreiseComponent implements OnInit {
 
-  public landkreise$: any;
+  public landkreise$: Observable<CoronaDataSet>;
 
   constructor(private readonly coronaService: CoronaDataService) { }
 
   ngOnInit(): void {
-    this.landkreise$ = this.coronaService.getLandkreise();
+    this.landkreise$ = this.coronaService.getObservable();
+    this.coronaService.getLandkreise();
   }
-
 }
