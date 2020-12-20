@@ -8,7 +8,7 @@ import { AboutComponent } from './about/about.component';
 
 const routes: Routes = [
   {
-    path: '', pathMatch: 'full', redirectTo: 'landkreise'
+    path: '', pathMatch: 'full', redirectTo: 'favoriten'
   },
   {
     path: 'landkreise', component: LandkreiseComponent
