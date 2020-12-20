@@ -15,7 +15,10 @@ export class LandkreiseComponent implements OnInit {
   constructor(private readonly coronaService: CoronaDataService) { }
 
   ngOnInit(): void {
-    this.landkreise$ = this.coronaService.getObservable();
-    this.coronaService.getLandkreise();
+    this.landkreise$ = this.coronaService.coronaData$;
+  }
+
+  public OnClick(countyId: number) {
+    this.coronaService.setSelectedCounty(countyId.toString());
   }
 }

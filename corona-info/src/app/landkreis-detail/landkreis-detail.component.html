@@ -1,25 +1,25 @@
 <div style="margin-top: 1rem;
     padding-left: 1rem;
-    padding-right: 1rem;" *ngFor="let landkreis of data$ | async; let i = index">
+    padding-right: 1rem;" *ngIf="countyDataSet$ | async as county;">
   <h2>
-    {{ landkreis.attributes.BEZ }} {{ landkreis.attributes.GEN }} in {{ landkreis.attributes.BL }}
+    {{ county.type }} {{ county.name }} in {{ county.state }}
     <button color="warn" [ngStyle]="{'color': iconColor}" mat-icon-button (click)="manageFavourite()">
       <mat-icon>favorite</mat-icon>
     </button>
   </h2>
   <div class="space-ml" style="display: flex; flex-direction: column; justify-content:space-around">
     <div class="space-y">
-      Bestätigte Fälle insgesamt: {{landkreis.attributes.cases}}
+      Bestätigte Fälle insgesamt: {{ county.cases }}
     </div>
     <div class="space-y">
-      Todesfälle: {{ landkreis.attributes.deaths }}
+      Todesfälle: {{ county.deaths }}
     </div>
     <div class="space-y">
-      Inzidenz: {{ landkreis.attributes.cases7_per_100k | number:'1.0-0' }}
+      Inzidenz: {{ county.incidence | number:'1.0-0' }}
     </div>
     <div class="space-y">
-      Inzidenz in {{ landkreis.attributes.BL }}:
-      {{ landkreis.attributes.cases7_bl_per_100k | number:'1.0-0' }}
+      Inzidenz in {{ county.type }}:
+      {{ county.incidenceOfState | number:'1.0-0' }}
     </div>
   </div>
 </div>

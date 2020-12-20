@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { Observable } from 'rxjs';
 import { CoronaDataService } from '../coronadata.service';
+import { County } from '../county';
+import { FavouriteService } from '../favourite.service';
 
 @Component({
   selector: 'app-favoriten',
@@ -9,11 +11,15 @@ import { CoronaDataService } from '../coronadata.service';
 })
 export class FavoritenComponent implements OnInit {
 
-  public favourites$: Observable<any>;
+  public favourites$: Observable<County[]>;
 
-  constructor(private coronadataService: CoronaDataService) { }
+  constructor(private favouriteService: FavouriteService, private coronaDataService: CoronaDataService) { }
 
   ngOnInit(): void {
-    this.favourites$ = this.coronadataService.getFavouritesData();
+    this.favourites$ = this.favouriteService.favouritesData$;
+  }
+
+  public OnClick(countyId: number) {
+    this.coronaDataService.setSelectedCounty(countyId.toString());
   }
 }

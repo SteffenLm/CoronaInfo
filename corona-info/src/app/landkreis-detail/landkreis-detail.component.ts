@@ -1,7 +1,8 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
-import { Subscription } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 import { CoronaDataService } from '../coronadata.service';
+import { County } from '../county';
 import { FavouriteService } from '../favourite.service';
 
 @Component({
@@ -15,7 +16,7 @@ export class LandkreisDetailComponent implements OnInit, OnDestroy {
 
   public iconColor: 'darkgrey' | '' = 'darkgrey';
 
-  public data$: any;
+  public countyDataSet$: Observable<County>;
 
   private paramSubscription: Subscription;
   public objectId: string;
@@ -30,7 +31,7 @@ export class LandkreisDetailComponent implements OnInit, OnDestroy {
     this.paramSubscription = this.route.params.subscribe(params => {
       this.objectId = params[this.paramKey];
     });
-    this.data$ = this.coronaService.getLandkreisData(this.objectId);
+    this.countyDataSet$ = this.coronaService.selectedCounty$;
     const favourites = this.favouriteService.getFavourites();
     favourites.forEach((favourite) => {
       if (favourite === this.objectId) {

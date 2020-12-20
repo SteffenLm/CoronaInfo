@@ -1,7 +1,7 @@
 <mat-nav-list>
     <div *ngIf="(landkreise$ | async) as landkreise">
         <a mat-list-item *ngFor="let landkreis of landkreise.dataSet; let i = index"
-            [routerLink]="['/landkreise/', landkreis.id]">
+            [routerLink]="['/landkreise/', landkreis.id]" (click)="OnClick(landkreis.id)">
             {{ landkreis.type + ' ' + landkreis.name }}
         </a>
     </div>
